@@ -14,12 +14,14 @@ function showTab(tabId) {
   
     // TODO: Llamar a la API e inicializar componentes
   });
-  
+  fetch('https://fakestoreapi.com/products/1')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
   // Espacio para vincular la API:
   // fetch('https://fakestoreapi.com/products')
   //   .then(res => res.json())
   //   .then(data => console.log(data));
-  
+
   // TODO: Implementar buscador
   // TODO: Implementar filtro por categoría
   // TODO: Implementar listado de productos
