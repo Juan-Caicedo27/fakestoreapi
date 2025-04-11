@@ -12,19 +12,43 @@ function showTab(tabId) {
       document.getElementById('splash-screen').style.display = 'none';
     }, 2000);
   
-    // TODO: Llamar a la API e inicializar componentes
+    // Llamar a la API e inicializar componentes
+    fetchProducts();
   });
-  fetch('https://fakestoreapi.com/products/1')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-  // Espacio para vincular la API:
-  // fetch('https://fakestoreapi.com/products')
-  //   .then(res => res.json())
-  //   .then(data => console.log(data));
-
+  
+  // Obtener productos de la API y mostrarlos
+  function fetchProducts() {
+    fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(data => {
+        renderProducts(data);
+      })
+      .catch(err => console.error('Error al obtener productos:', err));
+  }
+  
+  function renderProducts(products) {
+    const list = document.getElementById('product-list');
+    list.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" style="width:100px;height:auto;">
+        <h3>${product.title}</h3>
+        <p>$${product.price}</p>
+        <button onclick="addToFavorites(${product.id})">❤️</button>
+      `;
+      list.appendChild(card);
+    });
+  }
+  
+  function addToFavorites(productId) {
+    console.log('Favorito agregado:', productId);
+    // Aquí puedes implementar la lógica para guardar en localStorage
+  }
+  
   // TODO: Implementar buscador
   // TODO: Implementar filtro por categoría
-  // TODO: Implementar listado de productos
   // TODO: CRUD de favoritos en localStorage
   // TODO: Funcionalidad original
   // TODO: Manejo del formulario de registro
