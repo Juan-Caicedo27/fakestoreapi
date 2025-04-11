@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+  }
+  
+  .top-nav, .bottom-menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .top-nav button, .bottom-menu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .top-nav button:hover, .bottom-menu button:hover {
+    text-decoration: underline;
+  }
+  
+  .tab {
+    display: none;
+    padding: 20px;
+  }
+  
+  .tab.active {
+    display: block;
+  }
+  
+  #splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 9999;
+  }
+  
+  #register-form input, #register-form button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #product-list, #search-results, #filtered-products, #favorites-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
