@@ -6,6 +6,11 @@
   <title>Tienda Web</title>
   <link rel="stylesheet" href="Styles.css" />
   <link rel="icon" href="icon.png" type="image/png">
+  <!-- Firebase App (base) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<!-- Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
 </head>
 <body>
   <!-- Splash Screen -->
@@ -51,17 +56,18 @@
     </section>
 
     <section id="registro" class="tab">
-      <form id="register-form">
-        <input type="text" placeholder="Nombre" required />
-        <input type="text" placeholder="Apellido" required />
-        <input type="email" placeholder="Correo" required />
-        <input type="password" placeholder="Contraseña" required />
-        <input type="text" placeholder="Dirección" required />
-        <input type="tel" placeholder="Teléfono" required />
-        <input type="text" placeholder="Ciudad" required />
-        <button type="submit">Registrarse</button>
-      </form>
-    </section>
+        <form id="registro-form">
+          <input type="text" id="nombre" placeholder="Nombre" required />
+          <input type="text" id="apellido" placeholder="Apellido" required />
+          <input type="email" id="email" placeholder="Correo" required />
+          <input type="password" id="contraseña" placeholder="Contraseña" required />
+          <input type="text" id="direccion" placeholder="Dirección" required />
+          <input type="tel" id="telefono" placeholder="Teléfono" required />
+          <input type="text" id="ciudad" placeholder="Ciudad" required />
+          <button type="submit">Registrarse</button>
+        </form>
+      </section>
+      
   </main>
 
   <!-- Menú inferior -->
