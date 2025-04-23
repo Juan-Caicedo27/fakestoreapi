@@ -1,4 +1,3 @@
-/* Estilo base */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,12 +5,14 @@ body {
   width: 100%;
   height: 100vh; /* Altura igual al viewport */
   overflow: hidden; /* Evita scroll inesperado */
-  padding: 0%;
+  padding: 0;
 }
+
 main {
   width: 100%;
   height: calc(100vh - 60px); /* Ajusta para excluir el tamaño de las barras */
 }
+
 .top-nav, .bottom-menu {
   width: 100%;
   position: fixed; /* Asegura que se mantengan visibles */
@@ -94,7 +95,6 @@ main {
   font-size: 1rem;
 }
 
-/* Botón */
 #registro-form button {
   background-color: #333;
   color: white;
@@ -123,7 +123,7 @@ main {
 }
 
 .product-card img {
-  max-width: 100%; /* Asegura que se adapte al tamaño del contenedor */
+  max-width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
