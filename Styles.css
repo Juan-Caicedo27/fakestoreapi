@@ -1,123 +1,153 @@
+/* Estilo base */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-  }
-  
-  .top-nav, .bottom-menu {
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-  }
-  
-  .top-nav button, .bottom-menu button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .top-nav button:hover, .bottom-menu button:hover {
-    text-decoration: underline;
-  }
-  
-  .tab {
-    display: none;
-    padding: 20px;
-  }
-  
-  .tab.active {
-    display: block;
-  }
-  
-  #splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    z-index: 9999;
-  }
-  
-  #registro-form {
-    max-width: 400px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  #registro-form input, #registro-form button {
-    display: block;
-    margin: 10px auto;
-    padding: 12px;
-    width: 90%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
-  
-  #registro-form button {
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #registro-form button:hover {
-    background-color: #555;
-  }
-  
-  #product-list, #search-results, #filtered-products, #favorites-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 10px;
-  }
-  
-  .product-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .product-card img {
-    max-width: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .product-card h3 {
-    font-size: 16px;
-    margin: 10px 0 5px;
-  }
-  
-  .product-card p {
-    font-weight: bold;
-    color: #2c3e50;
-  }
-  
-  .product-card button {
-    margin-top: 8px;
-    padding: 6px 10px;
-    border: none;
-    background-color: #e74c3c;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .product-card button:hover {
-    background-color: #c0392b;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  width: 100%;
+  height: 100vh; /* Altura igual al viewport */
+  overflow: hidden; /* Evita scroll inesperado */
+  padding: 0%;
+}
+main {
+  width: 100%;
+  height: calc(100vh - 60px); /* Ajusta para excluir el tamaño de las barras */
+}
+.top-nav, .bottom-menu {
+  width: 100%;
+  position: fixed; /* Asegura que se mantengan visibles */
+}
+
+.top-nav {
+  top: 0;
+}
+
+.bottom-menu {
+  bottom: 0;
+}
+
+/* Menús superiores e inferiores */
+.top-nav, .bottom-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  flex-wrap: wrap; /* Soporta varias líneas */
+}
+
+.top-nav button, .bottom-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.top-nav button:hover, .bottom-menu button:hover {
+  text-decoration: underline;
+}
+
+/* Elementos ocultos y activos */
+.tab {
+  display: none;
+  padding: 20px;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Pantalla de carga */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 9999;
+}
+
+/* Formulario */
+#registro-form {
+  width: 90%; /* Adapta el tamaño dinámicamente */
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#registro-form input, #registro-form button {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Botón */
+#registro-form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#registro-form button:hover {
+  background-color: #555;
+}
+
+/* Listas y productos */
+#product-list, #search-results, #filtered-products, #favorites-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible */
+  gap: 10px;
+  padding: 10px;
+}
+
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  max-width: 100%; /* Asegura que se adapte al tamaño del contenedor */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  margin: 10px 0 5px;
+}
+
+.product-card p {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.product-card button {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border: none;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #c0392b;
+}
