@@ -6,11 +6,7 @@
   <title>Tienda Web</title>
   <link rel="stylesheet" href="Styles.css" />
   <link rel="icon" href="icon.png" type="image/png">
-  <!-- Firebase App (base) -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<!-- Firestore -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
+  
 </head>
 <body>
   <!-- Splash Screen -->
@@ -25,49 +21,33 @@
     <button onclick="showTab('buscar')">Buscar</button>
     <button onclick="showTab('filtros')">Filtros</button>
     <button onclick="showTab('favoritos')">Favoritos</button>
-    <button onclick="showTab('registro')">Registro</button>
+    <button onclick="showTab('info')">Información</button>
   </nav>
 
   <!-- Contenido -->
   <main id="main-content">
     <section id="home" class="tab active">Bienvenido a nuestra tienda online</section>
-
     <section id="productos" class="tab">Lista de productos:
       <div id="product-list"></div>
     </section>
-
     <section id="buscar" class="tab">
       <input type="text" id="search-input" placeholder="Buscar producto...">
       <div id="search-results"></div>
     </section>
-
     <section id="filtros" class="tab">
       <label for="category-filter">Filtrar por categoría:</label>
       <select id="category-filter">
         <option value="all">Todas</option>
-        <!-- Categorías desde la API -->
       </select>
       <div id="filtered-products"></div>
     </section>
-
     <section id="favoritos" class="tab">
       <h2>Favoritos</h2>
       <div id="favorites-list"></div>
     </section>
-
-    <section id="registro" class="tab">
-        <form id="registro-form">
-          <input type="text" id="nombre" placeholder="Nombre" required />
-          <input type="text" id="apellido" placeholder="Apellido" required />
-          <input type="email" id="email" placeholder="Correo" required />
-          <input type="password" id="contraseña" placeholder="Contraseña" required />
-          <input type="text" id="direccion" placeholder="Dirección" required />
-          <input type="tel" id="telefono" placeholder="Teléfono" required />
-          <input type="text" id="ciudad" placeholder="Ciudad" required />
-          <button type="submit">Registrarse</button>
-        </form>
-      </section>
-      
+    <section id="info" class="tab">
+      <div id="info-content"></div>
+    </section>
   </main>
 
   <!-- Menú inferior -->
@@ -81,3 +61,4 @@
   <script src="Script.js"></script>
 </body>
 </html>
+
