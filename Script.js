@@ -22,48 +22,6 @@ window.addEventListener('load', () => {
 // Declaración de la variable allProducts
 let allProducts = [];
 
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyDwuYyGgLlnjufIFEYHmW5MBxwugvyyUso",
-  authDomain: "fakestore-654ff.firebaseapp.com",
-  projectId: "fakestore-654ff",
-  storageBucket: "fakestore-654ff.firebasestorage.app",
-  messagingSenderId: "93376240477",
-  appId: "1:93376240477:web:b8134a74afe90188eaa6b4"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-function handleRegisterFormSubmit(e) {
-  e.preventDefault();
-  const data = {
-      nombre: document.getElementById('nombre').value,
-      apellido: document.getElementById('apellido').value,
-      email: document.getElementById('email').value,
-      telefono: document.getElementById('telefono').value,
-      direccion: document.getElementById('direccion').value,
-      ciudad: document.getElementById('ciudad').value,
-      contraseña: document.getElementById('contraseña').value
-  };
-
-  db.collection("usuarios").add(data)
-      .then(() => {
-          alert("Registro exitoso ✅");
-          document.getElementById("registro-form").reset();
-      })
-      .catch(error => {
-          console.error("Error al registrar: ", error);
-          alert("Hubo un error 😓");
-      });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('registro-form');
-  if (form) {
-      form.addEventListener('submit', handleRegisterFormSubmit);
-  }
-});
 
 // Obtener productos de la API y mostrarlos
 function fetchProducts() {
