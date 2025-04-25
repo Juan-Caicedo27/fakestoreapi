@@ -1,93 +1,187 @@
-/* CSS base para todo */
+/* General */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  width: 100%;
+  height: 100vh;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container {
+main {
   width: 100%;
-  padding: 10px;
+  min-height: calc(100vh - 120px); /* Ajuste para evitar solapamiento */
+  padding-top: 60px; /* Espacio para el menú superior */
+  padding-bottom: 60px; /* Espacio para el menú inferior */
+  box-sizing: border-box;
+  overflow-y: auto; /* Desplazamiento si es necesario */
 }
 
-header, footer {
+/* Menú superior e inferior */
+.top-nav, .bottom-menu {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: #333;
   color: white;
-  text-align: center;
-  padding: 10px;
+  z-index: 1000;
+  padding: 10px 0;
 }
 
-.product-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
+.top-nav {
+  top: 0;
+  flex-direction: row;
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  max-width: 120px; /* Para mantener las imágenes manejables */
-  margin-bottom: 10px;
+.bottom-menu {
+  bottom: 0;
+  flex-direction: row;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
+.top-nav button, .bottom-menu button {
+  background: none;
   border: none;
-  padding: 10px;
+  color: white;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 5px;
+  padding: 8px 12px;
+  flex: 1 1 auto;
+  min-width: 80px;
+  text-align: center;
 }
 
-button:hover {
-  background-color: #0056b3;
+.top-nav button:hover, .bottom-menu button:hover {
+  text-decoration: underline;
 }
 
-#product-list, #filtered-products, #search-results, #favorites-list {
+/* Contenido de las pestañas */
+.tab {
+  display: none;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Pantalla de carga */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 9999;
 }
 
-.product-card {
-  width: calc(33.333% - 20px);
-  margin: 10px;
+/* Estilo de la caja de información */
+.info-box {
+  background: url('https://images.unsplash.com/photo-1549921296-3a4b55c45d25?fit=crop&w=1200&q=80') no-repeat center center;
+  background-size: cover;
+  padding: 30px;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
 }
 
-/* Media queries para pantallas pequeñas */
+.info-box h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.info-box .info-image {
+  width: 150px;
+  margin: 10px auto;
+  display: block;
+}
+
+.info-box p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.author {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas más grandes, los menús son fijos en la parte superior e inferior */
 @media (max-width: 768px) {
+  .top-nav, .bottom-menu {
+    flex-direction: column; /* Mueve los botones en columna */
+    height: auto;
+  }
+
+  .top-nav button, .bottom-menu button {
+    max-width: 100%;
+    min-width: 80px;
+    padding: 12px 0;
+    font-size: 1.2rem;
+  }
+
+  .tab {
+    padding: 10px;
+  }
+
+  .info-box {
+    padding: 20px;
+  }
+
+  .info-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-box p {
+    font-size: 0.9rem;
+  }
+
   .product-card {
-      width: calc(50% - 20px);
-  }
-
-  #search-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-  }
-
-  button {
-      padding: 12px 20px;
+    flex: 1 1 45%; /* Reduce el tamaño de las tarjetas de producto */
+    max-width: 100%;
+    margin: 10px 0;
   }
 }
 
-/* Media queries para pantallas muy pequeñas */
+/* Para pantallas pequeñas (smartphones) */
 @media (max-width: 480px) {
+  .top-nav button, .bottom-menu button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .info-box {
+    padding: 15px;
+  }
+
+  .info-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .info-box p {
+    font-size: 0.8rem;
+  }
+
   .product-card {
-      width: 100%;
+    flex: 1 1 100%; /* Las tarjetas de producto ocupan el 100% del ancho */
+    max-width: 100%;
+    margin: 8px 0;
   }
 
-  header, footer {
-      padding: 5px;
-  }
-
-  button {
-      width: 100%;
-      font-size: 18px;
+  main {
+    padding-top: 80px; /* Ajustar para la barra de menú superior */
+    padding-bottom: 80px; /* Ajustar para la barra de menú inferior */
   }
 }
